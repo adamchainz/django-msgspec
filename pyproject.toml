@@ -6,7 +6,7 @@ requires = [
 
 [project]
 name = "django-msgspec"
-version = "0.0.0"
+version = "1.0.0"
 description = "msgspec-powered utilities for Django."
 readme = "README.rst"
 keywords = [

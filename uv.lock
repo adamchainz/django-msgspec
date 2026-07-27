@@ -363,7 +363,7 @@ wheels = [
 
 [[package]]
 name = "django-msgspec"
-version = "0.0.0"
+version = "1.0.0"
 source = { editable = "." }
 dependencies = [
     { name = "django", version = "5.2.14", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12' or extra == 'group-14-django-msgspec-django52' or (extra == 'group-14-django-msgspec-django60' and extra == 'group-14-django-msgspec-django61')" },
