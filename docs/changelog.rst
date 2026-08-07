@@ -2,8 +2,8 @@
 Changelog
 =========
 
-Unreleased
-----------
+1.0.1 (2026-08-07)
+------------------
 
 * Fix :func:`django_msgspec.enc_hook` to support Django’s ``SafeString``, as returned by Django’ss ``mark_safe()``.
   Previously, encoding a ``SafeString`` raised ``TypeError``.
