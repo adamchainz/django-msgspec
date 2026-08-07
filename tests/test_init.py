@@ -3,9 +3,11 @@ from __future__ import annotations
 from inspect import getsource
 from textwrap import dedent
 
+import msgspec.json
 import pytest
 from django.core.serializers.json import DjangoJSONEncoder
 from django.test import SimpleTestCase
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy
 
 from django_msgspec import enc_hook
@@ -14,6 +16,12 @@ from django_msgspec import enc_hook
 class EncHookTests(SimpleTestCase):
     def test_promise(self):
         assert enc_hook(gettext_lazy("hello")) == "hello"
+
+    def test_safestring(self):
+        assert enc_hook(mark_safe("<b>")) == "<b>"
+
+    def test_safestring_encode(self):
+        assert msgspec.json.encode(mark_safe("<b>"), enc_hook=enc_hook) == b'"<b>"'
 
     def test_unsupported_type(self):
         with pytest.raises(TypeError):
