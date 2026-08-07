@@ -10,7 +10,12 @@ enc_hook function
    .. |msgspec’s enc_hook parameter| replace:: msgspec’s ``enc_hook`` parameter
    __ https://msgspec.dev/extending
 
-   * Django’s ``Promise`` objects, as used for `lazy translations <https://docs.djangoproject.com/en/stable/topics/i18n/translation/#lazy-translations>`__
+   * Django’s ``Promise`` objects, as used for `lazy translations <https://docs.djangoproject.com/en/stable/topics/i18n/translation/#lazy-translations>`__.
+
+   * Django’s ``SafeString`` objects, as returned by |mark_safe()|__, which msgspec does not encode natively since it’s a ``str`` subclass.
+
+   .. |mark_safe()| replace:: ``mark_safe()``
+   __ https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.safestring.mark_safe
 
    msgspec natively supports every other type that Django’s ``DjangoJSONEncoder`` handles: ``decimal.Decimal``, ``uuid.UUID``, and all ``datetime`` types including ``timedelta``.
    Two behavioural differences from ``DjangoJSONEncoder``:
